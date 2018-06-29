@@ -43,11 +43,10 @@ namespace Kotoha
             var app = new WindowsAppFriend(_process);
             var main = WindowControl.FromZTop(app);
 
-            // Voiceroid2 TextInputs (0: Editor, 1: Volume, 2: Pitch, 3: Height, 4: Intonation, 5: Short pause, 6: Long pause, 7: Perios pause
             var textBox = new WPFTextBox(main.LogicalTree().ByType<TextBox>()[(int) _controlMapper.FindByRole<TextBox>(Role.EditorText)]);
             textBox.EmulateChangeText(text);
 
-            var button = new WPFButtonBase(main.LogicalTree().ByType<Button>()[(int) _controlMapper.FindByRole<TextBox>(Role.PlayButton)]);
+            var button = new WPFButtonBase(main.LogicalTree().ByType<Button>()[(int) _controlMapper.FindByRole<Button>(Role.PlayButton)]);
             button.EmulateClick();
         }
     }
