@@ -21,16 +21,16 @@ namespace Kotoha.Sample
             player.LoadPlugins($@"{Environment.CurrentDirectory}\plugins", true);
 
             // Kotoha also supports config (JSON format) file for talker definition.
-            // player.LoadTalkers(@"D:\Users\mikazuki\Documents\GitHub\Kotoha\Source\Kotoha\bin\Debug\netstandard2.0\kotoha.json");
+            // player.LoadTalkers($@"{Environment.CurrentDirectory}\plugins\talkers.json");
 
             // Initialize. You MUST initialize after loaded plugins.
             // player.Initialize();
 
             // Play voice.
-            player.PlayAsync("こんばんは！", "Akane");
+            player.PlayAsync("こんにちは", "Akane");
 
             // Save voice.
-            // await player.SaveAsync("こんにちは", "Akane", @"D:\Users\mikazuki\Documents\GitHub\Kotoha\Source\Kotoha\bin\Debug\netstandard2.0\voice.mp3");
+            // await player.SaveAsync("おはよう", "Akane", $@"{Environment.CurrentDirectory}\dist\ohayo.wav");
 
             // Finisihed.
             player.Dispose();
