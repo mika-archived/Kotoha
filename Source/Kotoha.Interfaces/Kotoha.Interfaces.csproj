@@ -4,14 +4,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{DB8170C2-041D-4B57-B4B0-CA94706C3125}</ProjectGuid>
+    <ProjectGuid>{8E405BCA-BDEA-4032-903E-EEE7CFCEE85E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Kotoha</RootNamespace>
-    <AssemblyName>Kotoha</AssemblyName>
+    <RootNamespace>Kotoha.Interfaces</RootNamespace>
+    <AssemblyName>Kotoha.Interfaces</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -31,36 +30,19 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Gu.Wpf.UiAutomation, Version=0.2.3.1, Culture=neutral, PublicKeyToken=14cccbf48e03496d, processorArchitecture=MSIL">
-      <HintPath>..\packages\Gu.Wpf.UiAutomation.0.2.3.1\lib\net45\Gu.Wpf.UiAutomation.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.Composition" />
-    <Reference Include="System.ComponentModel.Composition.Registration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Reflection.Context" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
-    <Reference Include="UIAutomationClient" />
-    <Reference Include="UIAutomationTypes" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="KotohaPlayer.cs" />
-    <Compile Include="PluginHost.cs" />
+    <Compile Include="IKotohaEngine.cs" />
+    <Compile Include="IKotohaTalker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Kotoha.Interfaces\Kotoha.Interfaces.csproj">
-      <Project>{8e405bca-bdea-4032-903e-eee7cfcee85e}</Project>
-      <Name>Kotoha.Interfaces</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
