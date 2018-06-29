@@ -31,14 +31,42 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Gu.Wpf.UiAutomation, Version=0.2.3.1, Culture=neutral, PublicKeyToken=14cccbf48e03496d, processorArchitecture=MSIL">
-      <HintPath>..\packages\Gu.Wpf.UiAutomation.0.2.3.1\lib\net45\Gu.Wpf.UiAutomation.dll</HintPath>
+    <Reference Include="Accessibility" />
+    <Reference Include="Codeer.Friendly, Version=2.5.2.0, Culture=neutral, PublicKeyToken=6c44da6fca38aa86, processorArchitecture=MSIL">
+      <HintPath>..\packages\Codeer.Friendly.2.5.2\lib\net40\Codeer.Friendly.dll</HintPath>
+    </Reference>
+    <Reference Include="Codeer.Friendly.Dynamic, Version=2.5.2.0, Culture=neutral, PublicKeyToken=376bc779077733e8, processorArchitecture=MSIL">
+      <HintPath>..\packages\Codeer.Friendly.2.5.2\lib\net40\Codeer.Friendly.Dynamic.dll</HintPath>
+    </Reference>
+    <Reference Include="Codeer.Friendly.Windows, Version=2.9.0.0, Culture=neutral, PublicKeyToken=532f270f1da385b3, processorArchitecture=MSIL">
+      <HintPath>..\packages\Codeer.Friendly.Windows.2.9.0\lib\net20\Codeer.Friendly.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="Codeer.Friendly.Windows.Grasp.2.0, Version=2.7.1.0, Culture=neutral, PublicKeyToken=92809a28945fb91d, processorArchitecture=MSIL">
+      <HintPath>..\packages\Codeer.Friendly.Windows.Grasp.2.7.1\lib\net35\Codeer.Friendly.Windows.Grasp.2.0.dll</HintPath>
+    </Reference>
+    <Reference Include="Codeer.Friendly.Windows.Grasp.3.5, Version=2.7.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Codeer.Friendly.Windows.Grasp.2.7.1\lib\net35\Codeer.Friendly.Windows.Grasp.3.5.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="RM.Friendly.WPFStandardControls.3.0, Version=1.11.1.0, Culture=neutral, PublicKeyToken=1b8f25b96765ebb0, processorArchitecture=MSIL">
+      <HintPath>..\packages\RM.Friendly.WPFStandardControls.1.11.1\lib\net40\RM.Friendly.WPFStandardControls.3.0.dll</HintPath>
+    </Reference>
+    <Reference Include="RM.Friendly.WPFStandardControls.3.5, Version=1.11.1.0, Culture=neutral, PublicKeyToken=133fc95b5bce0b86, processorArchitecture=MSIL">
+      <HintPath>..\packages\RM.Friendly.WPFStandardControls.1.11.1\lib\net40\RM.Friendly.WPFStandardControls.3.5.dll</HintPath>
+    </Reference>
+    <Reference Include="RM.Friendly.WPFStandardControls.4.0, Version=1.11.1.0, Culture=neutral, PublicKeyToken=804da7e4293a9f15, processorArchitecture=MSIL">
+      <HintPath>..\packages\RM.Friendly.WPFStandardControls.1.11.1\lib\net40\RM.Friendly.WPFStandardControls.4.0.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.ComponentModel.Composition.Registration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Reflection.Context" />
+    <Reference Include="System.Windows" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -47,8 +75,12 @@
     <Reference Include="System.Xml" />
     <Reference Include="UIAutomationClient" />
     <Reference Include="UIAutomationTypes" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IControlMapper2.cs" />
+    <Compile Include="WpfControlMapper.cs" />
+    <Compile Include="KotohaEngine.cs" />
     <Compile Include="KotohaPlayer.cs" />
     <Compile Include="PluginHost.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -57,9 +89,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Kotoha.Interfaces\Kotoha.Interfaces.csproj">
+    <ProjectReference Include="..\Kotoha.Plugin\Kotoha.Plugin.csproj">
       <Project>{8e405bca-bdea-4032-903e-eee7cfcee85e}</Project>
-      <Name>Kotoha.Interfaces</Name>
+      <Name>Kotoha.Plugin</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -8,22 +8,35 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 
-using Kotoha.Interfaces;
+using Kotoha.Plugins;
+
+// ReSharper disable UnusedAutoPropertyAccessor.Global
+// ReSharper disable CollectionNeverUpdated.Global
 
 namespace Kotoha
 {
     internal class PluginHost : IDisposable
     {
+        private readonly Dictionary<string, KotohaEngine> _instanceCache;
+        private readonly Dictionary<string, string> _talkerGroups;
         private CompositionContainer _container;
 
         [ImportMany]
-        public List<IKotohaEngine> Engines { get; set; }
+        public List<IKotohaEngine> KotohaEngines { get; set; }
 
         [ImportMany]
-        public List<IKotohaTalker> Talkers { get; set; }
+        public List<IKotohaTalker> KotohaTalkers { get; set; }
+
+        public PluginHost()
+        {
+            _instanceCache = new Dictionary<string, KotohaEngine>();
+            _talkerGroups = new Dictionary<string, string>();
+        }
 
         public void Dispose()
         {
+            foreach (var keyValuePair in _instanceCache)
+                keyValuePair.Value?.Dispose();
             _container?.Dispose();
         }
 
@@ -50,6 +63,24 @@ namespace Kotoha
 
             _container = new CompositionContainer(catalog);
             _container.ComposeParts(this);
+
+            // create talker group
+            foreach (var talkerGroup in KotohaTalkers.GroupBy(w => w.Engine))
+                foreach (var talker in talkerGroup.Select(w => w.Name))
+                    _talkerGroups.Add(talker, talkerGroup.Key);
+
+            // create instances
+            foreach (var engine in KotohaEngines)
+            {
+                var instance = new KotohaEngine(engine);
+                instance.Initialize();
+                _instanceCache.Add(engine.GetType().Name, instance);
+            }
+        }
+
+        public KotohaEngine GetTalkEngine(string name)
+        {
+            return _instanceCache[_talkerGroups[name]];
         }
     }
 }

@@ -12,7 +12,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionIt
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kotoha", "Kotoha\Kotoha.csproj", "{DB8170C2-041D-4B57-B4B0-CA94706C3125}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kotoha.Interfaces", "Kotoha.Interfaces\Kotoha.Interfaces.csproj", "{8E405BCA-BDEA-4032-903E-EEE7CFCEE85E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kotoha.Plugin", "Kotoha.Plugin\Kotoha.Plugin.csproj", "{8E405BCA-BDEA-4032-903E-EEE7CFCEE85E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "KotohaEngines", "KotohaEngines", "{41292B9E-56F6-4006-ADC9-948244A75520}"
 EndProject
@@ -21,6 +21,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kotoha.Engine.Voiceroid2", "Kotoha.Engine.Voiceroid2\Kotoha.Engine.Voiceroid2.csproj", "{2E49E63A-4ED8-46CD-803E-3EA5D6131FF9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kotoha.Talker.Akane", "Kotoha.Talker.Akane\Kotoha.Talker.Akane.csproj", "{8D1EBA13-025B-40C4-AFC0-69244F359567}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kotoha.Sample", "Kotoha.Sample\Kotoha.Sample.csproj", "{598A8391-11B6-4EFA-846C-A3392EF0EB9A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -44,6 +46,10 @@ Global
 		{8D1EBA13-025B-40C4-AFC0-69244F359567}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8D1EBA13-025B-40C4-AFC0-69244F359567}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8D1EBA13-025B-40C4-AFC0-69244F359567}.Release|Any CPU.Build.0 = Release|Any CPU
+		{598A8391-11B6-4EFA-846C-A3392EF0EB9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{598A8391-11B6-4EFA-846C-A3392EF0EB9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{598A8391-11B6-4EFA-846C-A3392EF0EB9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{598A8391-11B6-4EFA-846C-A3392EF0EB9A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

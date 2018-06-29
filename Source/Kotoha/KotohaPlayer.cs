@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Threading.Tasks;
 
 namespace Kotoha
 {
@@ -17,15 +16,17 @@ namespace Kotoha
             _pluginHost?.Dispose();
         }
 
-        public void Initialize() { }
-
         public void LoadPlugins(string directory, bool recursive = false)
         {
             _pluginHost.Initialize(directory, recursive);
         }
 
-        public async Task PlayAsync(string text, string talker) { }
+        public void PlayAsync(string text, string name)
+        {
+            var engine = _pluginHost.GetTalkEngine(name);
+            engine.PlayAsync(text, name);
+        }
 
-        public async Task SaveAsync(string text, string talker, string path) { }
+        public void SaveAsync(string text, string talker, string path) { }
     }
 }

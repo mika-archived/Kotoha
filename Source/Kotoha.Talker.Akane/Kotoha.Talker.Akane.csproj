@@ -16,7 +16,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\Kotoha\bin\Debug\plugins\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -44,13 +44,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Kotoha.Engine.Voiceroid2\Kotoha.Engine.Voiceroid2.csproj">
-      <Project>{2e49e63a-4ed8-46cd-803e-3ea5d6131ff9}</Project>
-      <Name>Kotoha.Engine.Voiceroid2</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Kotoha.Interfaces\Kotoha.Interfaces.csproj">
+    <ProjectReference Include="..\Kotoha.Plugin\Kotoha.Plugin.csproj">
       <Project>{8e405bca-bdea-4032-903e-eee7cfcee85e}</Project>
-      <Name>Kotoha.Interfaces</Name>
+      <Name>Kotoha.Plugin</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
