@@ -15,7 +15,7 @@ using (var player = new KotohaPlayer())
     player.LoadPlugins($@"{Environment.CurrentDirectory}/plugins", recursive: true);
     player.Initialize();
 
-    player.Speech("こんにちは", "Akane");
+    await player.SpeechAsync("こんにちは", "Aoi");
 }
 ```
 
