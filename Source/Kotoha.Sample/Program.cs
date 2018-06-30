@@ -27,10 +27,10 @@ namespace Kotoha.Sample
             // player.Initialize();
 
             // Play voice.
-            player.PlayAsync("こんにちは", "Akane");
+            player.Speech("こんにちは", "Akane");
 
             // Save voice.
-            // await player.SaveAsync("おはよう", "Akane", $@"{Environment.CurrentDirectory}\dist\ohayo.wav");
+            // await player.SaveAs("おはよう", "Akane", $@"{Environment.CurrentDirectory}\dist\ohayo.wav");
 
             // Finisihed.
             player.Dispose();

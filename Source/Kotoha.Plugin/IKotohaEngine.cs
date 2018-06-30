@@ -1,22 +1,12 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
 
-namespace Kotoha.Plugins
+namespace Kotoha.Plugin
 {
-    public interface IKotohaEngine
+    public interface IKotohaEngine : IDisposable
     {
         /// <summary>
-        ///     UI component type.
-        /// </summary>
-        ConnectionType ConnectionType { get; }
-
-        /// <summary>
-        ///     Mapping UI controls to keys.
-        /// </summary>
-        /// <param name="controlMapper"></param>
-        void Initialize(IControlMapper controlMapper);
-
-        /// <summary>
-        ///     Find main *.exe file
+        ///     Find main executable file
         /// </summary>
         string FindMainExecutable();
 
@@ -24,5 +14,25 @@ namespace Kotoha.Plugins
         ///     Find process from currently launched processes.
         /// </summary>
         Process FindCurrentProcess();
+
+        /// <summary>
+        ///     This method called only once at the first use (call Speech or SaveAs method from Player).
+        /// </summary>
+        void Initialize(IntPtr hWnd);
+
+        /// <summary>
+        ///     Speech specified text by name
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="talker"></param>
+        void Speech(string text, IKotohaTalker talker);
+
+        /// <summary>
+        ///     Save voice that speech text by name as path.
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="talker"></param>
+        /// <param name="path"></param>
+        void SaveAs(string text, IKotohaTalker talker, string path);
     }
 }

@@ -8,7 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 
-using Kotoha.Plugins;
+using Kotoha.Plugin;
 
 // ReSharper disable UnusedAutoPropertyAccessor.Global
 // ReSharper disable CollectionNeverUpdated.Global
@@ -37,6 +37,8 @@ namespace Kotoha
         {
             foreach (var keyValuePair in _instanceCache)
                 keyValuePair.Value?.Dispose();
+            foreach (var engine in KotohaEngines)
+                engine?.Dispose(); // いらないはず？
             _container?.Dispose();
         }
 
@@ -66,14 +68,13 @@ namespace Kotoha
 
             // create talker group
             foreach (var talkerGroup in KotohaTalkers.GroupBy(w => w.Engine))
-                foreach (var talker in talkerGroup.Select(w => w.Name))
+                foreach (var talker in talkerGroup.Select(w => w.Id))
                     _talkerGroups.Add(talker, talkerGroup.Key);
 
             // create instances
             foreach (var engine in KotohaEngines)
             {
                 var instance = new KotohaEngine(engine);
-                instance.Initialize();
                 _instanceCache.Add(engine.GetType().Name, instance);
             }
         }
