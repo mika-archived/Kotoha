@@ -24,6 +24,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kotoha.Talker.Akane", "Koto
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kotoha.Sample", "Kotoha.Sample\Kotoha.Sample.csproj", "{598A8391-11B6-4EFA-846C-A3392EF0EB9A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kotoha.Talker.Aoi", "Kotoha.Talker.Aoi\Kotoha.Talker.Aoi.csproj", "{7A3A730C-17CE-407B-AA1E-9C22369E054F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -50,6 +52,10 @@ Global
 		{598A8391-11B6-4EFA-846C-A3392EF0EB9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{598A8391-11B6-4EFA-846C-A3392EF0EB9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{598A8391-11B6-4EFA-846C-A3392EF0EB9A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A3A730C-17CE-407B-AA1E-9C22369E054F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A3A730C-17CE-407B-AA1E-9C22369E054F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A3A730C-17CE-407B-AA1E-9C22369E054F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A3A730C-17CE-407B-AA1E-9C22369E054F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -57,6 +63,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{2E49E63A-4ED8-46CD-803E-3EA5D6131FF9} = {41292B9E-56F6-4006-ADC9-948244A75520}
 		{8D1EBA13-025B-40C4-AFC0-69244F359567} = {DB733E0B-1363-435D-8486-2DBCBBCFAB6C}
+		{7A3A730C-17CE-407B-AA1E-9C22369E054F} = {DB733E0B-1363-435D-8486-2DBCBBCFAB6C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BA41A152-DEFC-483F-9A16-79A76F4BBBB3}
