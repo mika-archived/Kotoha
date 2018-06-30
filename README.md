@@ -86,6 +86,5 @@ player.LoadConfigs("/path/to/talkers_configuration.json");
 
 ## Donation
 
-* BTC : `1NFcYczriqTEzVgzfurTMJNbhxPY1vyki9`
-* ETH : `0xDc48d5AF8dCa1284F8770553E6e01beeE510535D`
-* MONA : `MC4x87u1ffmhsRhHof1sHz8UAtNtKCTQut`
+If you want to support me, you can donate cryptocurrencies here.  
+https://mochizuki.moe/donation
