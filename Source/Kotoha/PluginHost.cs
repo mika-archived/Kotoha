@@ -8,7 +8,10 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 
+using Kotoha.Impl;
 using Kotoha.Plugin;
+
+using Utf8Json;
 
 // ReSharper disable UnusedAutoPropertyAccessor.Global
 // ReSharper disable CollectionNeverUpdated.Global
@@ -42,7 +45,7 @@ namespace Kotoha
             _container?.Dispose();
         }
 
-        public void Initialize(string path, bool recursive)
+        public void LoadAssemblies(string path, bool recursive)
         {
             var builder = new RegistrationBuilder();
             builder.ForTypesDerivedFrom<IKotohaEngine>().ExportInterfaces();
@@ -65,9 +68,19 @@ namespace Kotoha
 
             _container = new CompositionContainer(catalog);
             _container.ComposeParts(this);
+        }
 
-            // create talker group
-            foreach (var talkerGroup in KotohaTalkers.GroupBy(w => w.Engine))
+        public void LoadJsonConfig(string path)
+        {
+            var talkers = JsonSerializer.Deserialize<List<KotohaTalker>>(new StreamReader(path).ReadToEnd());
+            foreach (var talker in talkers)
+                KotohaTalkers.Add(talker);
+        }
+
+        public void Initialize()
+        {
+            // create talker group (ignore ID == null)
+            foreach (var talkerGroup in KotohaTalkers.Where(w => w.Id != null).GroupBy(w => w.Engine))
                 foreach (var talker in talkerGroup.Select(w => w.Id))
                     _talkerGroups.Add(talker, talkerGroup.Key);
 

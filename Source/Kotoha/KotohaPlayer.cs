@@ -20,7 +20,17 @@ namespace Kotoha
 
         public void LoadPlugins(string directory, bool recursive = false)
         {
-            _pluginHost.Initialize(directory, recursive);
+            _pluginHost.LoadAssemblies(directory, recursive);
+        }
+
+        public void LoadConfigs(string path)
+        {
+            _pluginHost.LoadJsonConfig(path);
+        }
+
+        public void Initialize()
+        {
+            _pluginHost.Initialize();
         }
 
         public async Task SpeechAsync(string text, string name)
