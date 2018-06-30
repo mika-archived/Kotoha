@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Kotoha
 {
@@ -22,16 +23,16 @@ namespace Kotoha
             _pluginHost.Initialize(directory, recursive);
         }
 
-        public void Speech(string text, string name)
+        public async Task SpeechAsync(string text, string name)
         {
             var engine = _pluginHost.GetTalkEngine(name);
-            engine.Speech(text, _pluginHost.KotohaTalkers.SingleOrDefault(w => w.Id == name));
+            await engine.SpeechAsync(text, _pluginHost.KotohaTalkers.SingleOrDefault(w => w.Id == name));
         }
 
-        public void SaveAs(string text, string name, string path)
+        public async Task SaveAsAsync(string text, string name, string path)
         {
             var engine = _pluginHost.GetTalkEngine(name);
-            engine.SaveAs(text, _pluginHost.KotohaTalkers.SingleOrDefault(w => w.Id == name), path);
+            await engine.SaveAsAsync(text, _pluginHost.KotohaTalkers.SingleOrDefault(w => w.Id == name), path);
         }
     }
 }

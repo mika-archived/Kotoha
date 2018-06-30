@@ -1,10 +1,16 @@
 ﻿using System;
+using System.Threading.Tasks;
 
 namespace Kotoha.Sample
 {
     internal class Program
     {
         private static void Main(string[] args)
+        {
+            Run().Wait();
+        }
+
+        private static async Task Run()
         {
             // Create a instance of Kotoha.
             var player = new KotohaPlayer();
@@ -27,7 +33,8 @@ namespace Kotoha.Sample
             // player.Initialize();
 
             // Play voice.
-            player.Speech("こんにちは", "Aoi");
+            await player.SpeechAsync("こんにちは", "Aoi");
+            await player.SpeechAsync("おはよう", "Akane");
 
             // Save voice.
             // await player.SaveAs("おはよう", "Akane", $@"{Environment.CurrentDirectory}\dist\ohayo.wav");

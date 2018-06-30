@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Threading.Tasks;
 
 using Kotoha.Plugin;
 
@@ -24,15 +25,16 @@ namespace Kotoha
             _process?.Dispose();
         }
 
-        public void Speech(string text, IKotohaTalker talker)
+        public async Task SpeechAsync(string text, IKotohaTalker talker)
         {
             Initialize();
-            _engine.Speech(text, talker);
+            await _engine.SpeechAsync(text, talker);
         }
 
-        public void SaveAs(string text, IKotohaTalker talker, string path)
+        public async Task SaveAsAsync(string text, IKotohaTalker talker, string path)
         {
             Initialize();
+            await _engine.SaveAsAsync(text, talker, path);
         }
 
         private void Initialize()

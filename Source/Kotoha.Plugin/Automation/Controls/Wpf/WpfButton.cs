@@ -13,6 +13,8 @@ namespace Kotoha.Plugin.Automation.Controls.Wpf
             _button = button;
         }
 
+        public bool IsEnabled => _button.IsEnabled;
+
         public void Click()
         {
             _button.EmulateClick();

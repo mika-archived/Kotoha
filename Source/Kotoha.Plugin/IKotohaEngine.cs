@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Threading.Tasks;
 
 namespace Kotoha.Plugin
 {
@@ -25,7 +26,7 @@ namespace Kotoha.Plugin
         /// </summary>
         /// <param name="text"></param>
         /// <param name="talker"></param>
-        void Speech(string text, IKotohaTalker talker);
+        Task SpeechAsync(string text, IKotohaTalker talker);
 
         /// <summary>
         ///     Save voice that speech text by name as path.
@@ -33,6 +34,6 @@ namespace Kotoha.Plugin
         /// <param name="text"></param>
         /// <param name="talker"></param>
         /// <param name="path"></param>
-        void SaveAs(string text, IKotohaTalker talker, string path);
+        Task SaveAsAsync(string text, IKotohaTalker talker, string path);
     }
 }

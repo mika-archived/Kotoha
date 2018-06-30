@@ -2,6 +2,8 @@
 {
     public interface IButton
     {
+        bool IsEnabled { get; }
+
         void Click();
     }
 }
