@@ -12,10 +12,10 @@ Very simple.
 ```csharp
 using (var player = new KotohaPlayer())
 {
-	player.LoadPlugins($@"{Environment.CurrentDirectory}/plugins", recursive: true);
-	player.Initialize();
+    player.LoadPlugins($@"{Environment.CurrentDirectory}/plugins", recursive: true);
+    player.Initialize();
 
-	player.Play("こんにちは", "Akane");
+    player.Play("こんにちは", "Akane");
 }
 ```
 
