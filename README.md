@@ -50,13 +50,13 @@ But, Kotoha doesn't launch/find backend engines (e.g. VOICEROID, CeVIO).
     +-----------+-----------+
     |     constructor()     |
     +-----------+-----------+
-                |<------------------------------------------------------------------------------------+
+                +<------------------------------------------------------------------------------------+
     +-----------+-----------+                                                                         |
     | SpeechAsync(str, str) +                                                                         |
     +-----------+-----------+                                                                         |
                 |                                                                                     |
                 |                       +-----------+-----------+                                     |
-       Already Initialized? ---- No --->| FindCurrentProcess()  |                                     |
+       Already Initialized? ---- No --->+ FindCurrentProcess()  |                                     |
                 |                       +-----------+-----------+                                     |
                Yes                                  |                     +-----------------------+   |
                 |                           Already Launched? ---- No --->+  FindMainExecutable() |   |
