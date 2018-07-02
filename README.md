@@ -34,6 +34,50 @@ For example:
 
 Kotoha use `Codeer.Friendly` for UI automation. You can use and find it in `Kotoha.Plugin.Automation` namespace classes.
 
+Example implementation is [`Kotoha.Engine.Voiceroid2`](blob/develop/Source/Kotoha.Engine.Voiceroid2/Voiceroid2Engine.cs).  
+
+
+#### Lifecycle
+
+All plugins are loaded when `LoadPlugins` is called by Application Host.  
+But, Kotoha doesn't launch/find backend engines (e.g. VOICEROID, CeVIO).
+
+```
+    +-----------+-----------+
+    |     LoadPlugins()     |
+    +-----------+-----------+
+                |
+    +-----------+-----------+
+    |     constructor()     |
+    +-----------+-----------+
+                |<------------------------------------------------------------------------------------+
+    +-----------+-----------+                                                                         |
+    | SpeechAsync(str, str) +                                                                         |
+    +-----------+-----------+                                                                         |
+                |                                                                                     |
+                |                       +-----------+-----------+                                     |
+       Already Initialized? ---- No --->| FindCurrentProcess()  |                                     |
+                |                       +-----------+-----------+                                     |
+               Yes                                  |                     +-----------------------+   |
+                |                           Already Launched? ---- No --->+  FindMainExecutable() |   |
+                |                                   |                     +-----------+-----------+   |
+                |                                  Yes                                |               |
+                |                                   |                                 |               |
+                |                       +-----------+-----------+                     |               |
+                |                       |   Initialize(IntPtr)  +<--------------------+               |
+                |                       +-----------+-----------+                                     |
+                |                                   |                                                 |
+                +<----------------------------------+                                                 |
+                |                                                                                     |
+    +-----------+-----------+                                                                         |
+    | SpeechAsync(str,talk) +-------------------------------------------------------------------------+
+    +-----------+-----------+
+                |
+    +-----------+-----------+
+    |       Dispose()       |
+    +-----------+-----------+             
+```
+
 
 ### Talkers
 
