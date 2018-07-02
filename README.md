@@ -34,7 +34,7 @@ For example:
 
 Kotoha use `Codeer.Friendly` for UI automation. You can use and find it in `Kotoha.Plugin.Automation` namespace classes.
 
-Example implementation is [`Kotoha.Engine.Voiceroid2`](blob/develop/Source/Kotoha.Engine.Voiceroid2/Voiceroid2Engine.cs).  
+Example implementation is [`Kotoha.Engine.Voiceroid2`](Source/Kotoha.Engine.Voiceroid2/Voiceroid2Engine.cs).  
 
 
 #### Lifecycle
