@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+
+using Kotoha.Plugin;
 
 namespace Kotoha
 {
@@ -26,6 +29,11 @@ namespace Kotoha
         public void LoadConfigs(string path)
         {
             _pluginHost.LoadJsonConfig(path);
+        }
+
+        public void LoadClasses(IEnumerable<IKotohaTalker> talkers)
+        {
+            _pluginHost.LoadClasses(talkers);
         }
 
         public void Initialize()

@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading.Tasks;
+
+using Kotoha.Plugin;
 
 namespace Kotoha.Sample
 {
@@ -32,6 +35,9 @@ namespace Kotoha.Sample
                 // Kotoha also supports config (JSON format) file for talker definition.
                 player.LoadConfigs($@"{Environment.CurrentDirectory}\plugins\talkers.json");
 
+                // and class load. You can configure talkers dynamically.
+                player.LoadClasses(new List<IKotohaTalker> {new Yukari()});
+
                 // Initialize. You MUST initialize after loaded plugins.
                 player.Initialize();
 
@@ -50,5 +56,12 @@ namespace Kotoha.Sample
                 Debug.WriteLine(e);
             }
         }
+    }
+
+    internal class Yukari : IKotohaTalker
+    {
+        public string Id => "Yukari";
+        public string Name => "結月ゆかり";
+        public string Engine => "Voiceroid2Engine";
     }
 }

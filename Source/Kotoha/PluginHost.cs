@@ -34,6 +34,9 @@ namespace Kotoha
         {
             _instanceCache = new Dictionary<string, KotohaEngine>();
             _talkerGroups = new Dictionary<string, string>();
+
+            KotohaEngines = new List<IKotohaEngine>();
+            KotohaTalkers = new List<IKotohaTalker>();
         }
 
         public void Dispose()
@@ -73,6 +76,11 @@ namespace Kotoha
         public void LoadJsonConfig(string path)
         {
             var talkers = JsonSerializer.Deserialize<List<KotohaTalker>>(new StreamReader(path).ReadToEnd());
+            LoadClasses(talkers);
+        }
+
+        public void LoadClasses(IEnumerable<IKotohaTalker> talkers)
+        {
             foreach (var talker in talkers)
                 KotohaTalkers.Add(talker);
         }
