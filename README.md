@@ -81,12 +81,14 @@ But, Kotoha doesn't launch/find backend engines (e.g. VOICEROID, CeVIO).
 
 ### Talkers
 
-You can choose 2-type plugin of talker.
+You can choose 3-type plugin of talker.
 
 1. .NET library.
 2. JSON configuration.
+3. Class that implement `IKotohaTalker`.
 
-Both plugins offer the same thing.
+
+Plugins offer the same thing.
 
 * `id` : Unique ID for plugin. I recommend roma-ji style name (e.g. 琴葉葵 is Akane)
 * `name` : Plugin name that you like. You may need to follow the engine.
@@ -126,6 +128,25 @@ and load.
 player.LoadConfigs("/path/to/talkers_configuration.json");
 ```
 
+
+#### Class
+
+Create a new class
+
+```csharp
+internal class Yukari : IKotohaTalker
+{
+    public string Id => "Yukari";
+    public string Name => "結月ゆかり";
+    public string Engine => "Voiceroid2Engine";
+}
+```
+
+and load
+
+```csharp
+player.LoadClasses(new List<IKotohaTalker> { new Yukari() });
+```
 
 
 ## Donation
