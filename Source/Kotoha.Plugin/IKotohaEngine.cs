@@ -7,6 +7,11 @@ namespace Kotoha.Plugin
     public interface IKotohaEngine : IDisposable
     {
         /// <summary>
+        ///     Engine name
+        /// </summary>
+        string Name { get; }
+
+        /// <summary>
         ///     Find main executable file
         /// </summary>
         string FindMainExecutable();

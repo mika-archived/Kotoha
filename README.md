@@ -92,7 +92,7 @@ Plugins offer the same thing.
 
 * `id` : Unique ID for plugin. I recommend roma-ji style name (e.g. 琴葉葵 is Akane)
 * `name` : Plugin name that you like. You may need to follow the engine.
-* `engine` : Text-To-Speech engine class such as VOICEROID2, CeVIO...
+* `engine` : Text-To-Speech engine name such as VOICEROID2, CeVIO...
 
 
 #### .NET library
@@ -112,12 +112,12 @@ You write JSON as below example.
   {
     "id": "Akane",
     "name": "琴葉 茜",
-    "engine": "Voiceroid2Engine"
+    "engine": "VOICEROID2"
   },
   {
     "id": "Aoi",
     "name": "琴葉 葵",
-    "engine": "Voiceroid2Engine"
+    "engine": "VOICEROID2"
   }
 ]
 ```
@@ -138,7 +138,7 @@ internal class Yukari : IKotohaTalker
 {
     public string Id => "Yukari";
     public string Name => "結月ゆかり";
-    public string Engine => "Voiceroid2Engine";
+    public string Engine => "VOICEROID2";
 }
 ```
 

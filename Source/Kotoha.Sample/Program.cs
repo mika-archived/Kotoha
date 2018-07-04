@@ -62,6 +62,6 @@ namespace Kotoha.Sample
     {
         public string Id => "Yukari";
         public string Name => "結月ゆかり";
-        public string Engine => "Voiceroid2Engine";
+        public string Engine => "VOICEROID2";
     }
 }

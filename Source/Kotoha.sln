@@ -18,7 +18,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "KotohaEngines", "KotohaEngi
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "KotohaTalkers", "KotohaTalkers", "{DB733E0B-1363-435D-8486-2DBCBBCFAB6C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kotoha.Engine.Voiceroid2", "Kotoha.Engine.Voiceroid2\Kotoha.Engine.Voiceroid2.csproj", "{2E49E63A-4ED8-46CD-803E-3EA5D6131FF9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kotoha.Engine.VOICEROID2", "Kotoha.Engine.Voiceroid2\Kotoha.Engine.VOICEROID2.csproj", "{2E49E63A-4ED8-46CD-803E-3EA5D6131FF9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kotoha.Talker.Akane", "Kotoha.Talker.Akane\Kotoha.Talker.Akane.csproj", "{8D1EBA13-025B-40C4-AFC0-69244F359567}"
 EndProject

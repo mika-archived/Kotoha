@@ -6,6 +6,6 @@ namespace Kotoha.Talker.Akane
     {
         public string Id => "Akane";
         public string Name => "琴葉 茜";
-        public string Engine => "Voiceroid2Engine";
+        public string Engine => "VOICEROID2";
     }
 }

@@ -6,6 +6,6 @@ namespace Kotoha.Talker.Aoi
     {
         public string Id => "Aoi";
         public string Name => "琴葉 葵";
-        public string Engine => "Voiceroid2Engine";
+        public string Engine => "VOICEROID2";
     }
 }

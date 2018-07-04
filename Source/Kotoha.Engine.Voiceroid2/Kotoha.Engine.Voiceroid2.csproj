@@ -7,8 +7,8 @@
     <ProjectGuid>{2E49E63A-4ED8-46CD-803E-3EA5D6131FF9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Kotoha.Engine.Voiceroid2</RootNamespace>
-    <AssemblyName>Kotoha.Engine.Voiceroid2</AssemblyName>
+    <RootNamespace>Kotoha.Engine.VOICEROID2</RootNamespace>
+    <AssemblyName>Kotoha.Engine.VOICEROID2</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

@@ -96,7 +96,7 @@ namespace Kotoha
             foreach (var engine in KotohaEngines)
             {
                 var instance = new KotohaEngine(engine);
-                _instanceCache.Add(engine.GetType().Name, instance);
+                _instanceCache.Add(engine.Name, instance);
             }
         }
 

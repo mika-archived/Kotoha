@@ -9,7 +9,7 @@ using Kotoha.Plugin.Automation.Controls.Interface;
 
 using Microsoft.Win32;
 
-namespace Kotoha.Engine.Voiceroid2
+namespace Kotoha.Engine.VOICEROID2
 {
     public class Voiceroid2Engine : IKotohaEngine
     {
@@ -17,6 +17,8 @@ namespace Kotoha.Engine.Voiceroid2
         private ITextBox _editor;
         private IButton _setCaretToFirstButton; // waiter
         private IButton _speechButton;
+
+        public string Name => "VOICEROID2";
 
         public Process FindCurrentProcess()
         {
