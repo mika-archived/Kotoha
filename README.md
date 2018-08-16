@@ -15,7 +15,7 @@ using (var player = new KotohaPlayer())
     player.LoadPlugins($@"{Environment.CurrentDirectory}/plugins", recursive: true);
     player.Initialize();
 
-    await player.SpeechAsync("こんにちは", "Aoi");
+    await player.SpeechAsync("こんにちは", "琴葉 葵");
 }
 ```
 
@@ -90,7 +90,6 @@ You can choose 3-type plugin of talker.
 
 Plugins offer the same thing.
 
-* `id` : Unique ID for plugin. I recommend roma-ji style name (e.g. 琴葉葵 is Akane)
 * `name` : Plugin name that you like. You may need to follow the engine.
 * `engine` : Text-To-Speech engine name such as VOICEROID2, CeVIO...
 
@@ -110,12 +109,10 @@ You write JSON as below example.
 ```json
 [
   {
-    "id": "Akane",
     "name": "琴葉 茜",
     "engine": "VOICEROID2"
   },
   {
-    "id": "Aoi",
     "name": "琴葉 葵",
     "engine": "VOICEROID2"
   }
@@ -136,7 +133,6 @@ Create a new class
 ```csharp
 internal class Yukari : IKotohaTalker
 {
-    public string Id => "Yukari";
     public string Name => "結月ゆかり";
     public string Engine => "VOICEROID2";
 }
