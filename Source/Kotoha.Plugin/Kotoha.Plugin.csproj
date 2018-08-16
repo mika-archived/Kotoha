@@ -81,7 +81,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Automation\Controls\Interface\IButton.cs" />
+    <Compile Include="Automation\Controls\Interface\ITextBlock.cs" />
     <Compile Include="Automation\Controls\Interface\ITextBox.cs" />
+    <Compile Include="Automation\Controls\Wpf\WpfTextBlock.cs" />
     <Compile Include="Automation\Controls\Wpf\WpfTextBox.cs" />
     <Compile Include="Automation\Controls\Wpf\WpfButton.cs" />
     <Compile Include="IKotohaEngine.cs" />

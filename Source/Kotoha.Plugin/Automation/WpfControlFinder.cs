@@ -41,6 +41,12 @@ namespace Kotoha.Plugin.Automation
             return new WpfTextBox(textBox);
         }
 
+        public ITextBlock FindTextBlock(int index = 0)
+        {
+            var textBlock = new WPFTextBlock(_main.LogicalTree().ByType<TextBlock>()[index]);
+            return new WpfTextBlock(textBlock);
+        }
+
         public IButton FindButton(int index = 0)
         {
             var button = new WPFButtonBase(_main.LogicalTree().ByType<Button>()[index]);
