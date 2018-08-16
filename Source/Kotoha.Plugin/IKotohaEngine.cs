@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading.Tasks;
 
@@ -10,6 +11,11 @@ namespace Kotoha.Plugin
         ///     Engine name
         /// </summary>
         string Name { get; }
+
+        /// <summary>
+        /// Plugin detected talkers
+        /// </summary>
+        List<IKotohaTalker> Talkers { get; }
 
         /// <summary>
         ///     Find main executable file

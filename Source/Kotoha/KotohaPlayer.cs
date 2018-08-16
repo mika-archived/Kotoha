@@ -44,13 +44,13 @@ namespace Kotoha
         public async Task SpeechAsync(string text, string name)
         {
             var engine = _pluginHost.GetTalkEngine(name);
-            await engine.SpeechAsync(text, _pluginHost.KotohaTalkers.SingleOrDefault(w => w.Id == name));
+            await engine.SpeechAsync(text, _pluginHost.KotohaTalkers.SingleOrDefault(w => w.Name == name));
         }
 
         public async Task SaveAsAsync(string text, string name, string path)
         {
             var engine = _pluginHost.GetTalkEngine(name);
-            await engine.SaveAsAsync(text, _pluginHost.KotohaTalkers.SingleOrDefault(w => w.Id == name), path);
+            await engine.SaveAsAsync(text, _pluginHost.KotohaTalkers.SingleOrDefault(w => w.Name == name), path);
         }
     }
 }

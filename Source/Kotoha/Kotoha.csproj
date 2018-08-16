@@ -64,7 +64,6 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Impl\KotohaTalker.cs" />
     <Compile Include="KotohaEngine.cs" />
     <Compile Include="KotohaPlayer.cs" />
     <Compile Include="PluginHost.cs" />

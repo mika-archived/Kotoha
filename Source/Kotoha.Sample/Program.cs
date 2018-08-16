@@ -33,7 +33,7 @@ namespace Kotoha.Sample
                 player.LoadPlugins($@"{Environment.CurrentDirectory}\plugins", true);
 
                 // Kotoha also supports config (JSON format) file for talker definition.
-                player.LoadConfigs($@"{Environment.CurrentDirectory}\plugins\talkers.json");
+                // player.LoadConfigs($@"{Environment.CurrentDirectory}\plugins\talkers.json");
 
                 // and class load. You can configure talkers dynamically.
                 player.LoadClasses(new List<IKotohaTalker> {new Yukari()});
@@ -42,8 +42,8 @@ namespace Kotoha.Sample
                 player.Initialize();
 
                 // Play voice.
-                await player.SpeechAsync("こんにちは", "Aoi");
-                await player.SpeechAsync("おはよう", "Akane");
+                await player.SpeechAsync("こんにちは", "琴葉 葵");
+                await player.SpeechAsync("おはよう", "琴葉 茜");
 
                 // Save voice.
                 // await player.SaveAs("おはよう", "Akane", $@"{Environment.CurrentDirectory}\dist\ohayo.wav");

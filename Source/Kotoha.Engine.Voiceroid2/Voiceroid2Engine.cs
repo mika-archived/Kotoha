@@ -1,11 +1,16 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Xml;
 
 using Kotoha.Plugin;
 using Kotoha.Plugin.Automation;
 using Kotoha.Plugin.Automation.Controls.Interface;
+using Kotoha.Plugin.Helpers;
+using Kotoha.Plugin.Impl;
 
 using Microsoft.Win32;
 
@@ -18,7 +23,43 @@ namespace Kotoha.Engine.VOICEROID2
         private IButton _setCaretToFirstButton; // waiter
         private IButton _speechButton;
 
+        public Voiceroid2Engine()
+        {
+            Talkers = new List<IKotohaTalker>();
+
+            var standard = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "AHS", "VOICEROID", "2.0", "Standard.settings");
+            LoadPresets(standard, true);
+
+            var document = new XmlDocument();
+            document.Load(standard);
+
+            var userPreset = document.SelectSingleNode("/UserSettings/VoicePreset/VoicePresetFilePath");
+            if (userPreset == null)
+                throw new InvalidOperationException();
+            var userdir = SpecialFolderHelper.GetSpecialFolder(userPreset.SelectSingleNode("SpecialFolder")?.InnerText);
+            var partialPath = userPreset.SelectSingleNode("PartialPath")?.InnerText;
+
+            LoadPresets(Path.Combine(userdir, partialPath ?? throw new InvalidOperationException()));
+        }
+
+        private void LoadPresets(string path, bool isDeep = false)
+        {
+            var document = new XmlDocument();
+            document.Load(path);
+
+            var rootPath = isDeep ? "/UserSettings/VoicePreset/VoicePresets/" : "/ArrayOfVoicePreset/";
+            var presets = document.SelectNodes($"{rootPath}VoicePreset");
+            if (presets == null)
+                throw new NullReferenceException();
+
+            foreach (XmlNode preset in presets)
+                Talkers.Add(new KotohaTalker {Engine = Name, Name = preset.SelectSingleNode("PresetName")?.InnerText});
+        }
+
+        #region IKotohaEngine
+
         public string Name => "VOICEROID2";
+        public List<IKotohaTalker> Talkers { get; }
 
         public Process FindCurrentProcess()
         {
@@ -48,6 +89,7 @@ namespace Kotoha.Engine.VOICEROID2
         {
             _editor.Text = $"{talker.Name}＞{text}";
             _speechButton.Click();
+
             // delay
             await Task.Delay(TimeSpan.FromMilliseconds(200));
 
@@ -59,5 +101,7 @@ namespace Kotoha.Engine.VOICEROID2
         {
             throw new NotImplementedException();
         }
+
+        #endregion
     }
 }

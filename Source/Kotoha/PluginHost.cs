@@ -8,8 +8,8 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 
-using Kotoha.Impl;
 using Kotoha.Plugin;
+using Kotoha.Plugin.Impl;
 
 using Utf8Json;
 
@@ -87,17 +87,21 @@ namespace Kotoha
 
         public void Initialize()
         {
-            // create talker group (ignore ID == null)
-            foreach (var talkerGroup in KotohaTalkers.Where(w => w.Id != null).GroupBy(w => w.Engine))
-                foreach (var talker in talkerGroup.Select(w => w.Id))
-                    _talkerGroups.Add(talker, talkerGroup.Key);
-
             // create instances
             foreach (var engine in KotohaEngines)
             {
+                // register auto-detected talkers
+                foreach (var talker in engine.Talkers)
+                    KotohaTalkers.Add(talker);
+
                 var instance = new KotohaEngine(engine);
                 _instanceCache.Add(engine.Name, instance);
             }
+
+            // create talker group (ignore ID == null)
+            foreach (var talkerGroup in KotohaTalkers.Where(w => w.Name != null).GroupBy(w => w.Engine))
+                foreach (var talker in talkerGroup.Select(w => w.Name))
+                    _talkerGroups.Add(talker, talkerGroup.Key);
         }
 
         public KotohaEngine GetTalkEngine(string name)
