@@ -23,8 +23,12 @@ namespace Kotoha.Engine.VOICEROID2
         private IButton _setCaretToFirstButton; // waiter
         private IButton _speechButton;
 
+        // Constructor
         public Voiceroid2Engine()
         {
+            // Register talkers from VOICEROID2 configuration
+            // Engine's registered talkers are loaded in `Initialize` lifecycle.
+            // If you want to register talkers in engine, please register in constructor.
             Talkers = new List<IKotohaTalker>();
 
             var standard = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "AHS", "VOICEROID", "2.0", "Standard.settings");
